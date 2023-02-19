@@ -208,7 +208,7 @@ get_nrc_sentiment <- function(char_v, cl=NULL, language = "english", lowercase =
   if(lowercase){
     char_v <- tolower(char_v)
   }
-  word_l <- strsplit(char_v, "[[:alpha:]äöü']+")
+  word_l <- strsplit(char_v, "[^A-Za-z'äöü]+")
   
   if(is.null(cl)){
     nrc_data <- lapply(word_l, get_nrc_values, lexicon = lexicon)
